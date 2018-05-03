@@ -53,6 +53,10 @@
                         <label for="sharelink">Share:</label>
                         <input type="text" id="sharelink" style="min-width:300px;" placeholder="Select a Node to create a permalink." value="" data-theme="a">
                     </div>
+                    <div>
+                      <input type="text" id="jq-console">
+                      <pre id="jq-console-output">"Enter some jq expression above to see the result here."</pre>
+                    </div>
                 </div>
             </div><!-- /footer -->
             <div data-display="push" data-role="panel" id="info-panel" data-swipe-close=false>
@@ -160,6 +164,16 @@
         <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script type="text/javascript" src="lib/preinit.js"></script>
         <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mobile/1.4.5/jquery.mobile.min.js"></script>
+        <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
+        <script type='text/javascript'>
+          // we know there's only one wasm file we'll be loading, so it's fine to hard code "jq-web"
+          Module = {
+            locateFile: function(s) {
+              return 'node_modules/jq-web/' + s;
+            }
+          };
+        </script>
+        <script type='text/javascript' src="node_modules/jq-web/jq.wasm.js"></script>
         <!-- @if NODE_ENV!='PRODUCTION' -->
         <script>
           $.ajaxSetup({
