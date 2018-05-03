@@ -576,10 +576,11 @@ if (typeof JSV === 'undefined') {
          */
         setPermalink: function(node) {
             var uri = new URI(),
-                path = JSV.getNodePath(node).join('-');
+                path = JSV.getNodePath(node).join('-'),
+                slug = $('#schema-selector').val();
 
             //uri.search({ v: path});
-            uri.hash($.mobile.activePage.attr('id') + '?v=' + path);
+            uri.hash($.mobile.activePage.attr('id') + '?v=' + path + '&s=' + slug);
             $('#permalink').html(JSV.compilePath(node));
             $('#sharelink').val(uri.toString());
         },
