@@ -1246,7 +1246,9 @@ if (typeof JSV === 'undefined') {
         createDiagram: function(callback) {
             tv4.asyncLoad([JSV.schema], function() {
 
-                JSV.compileData(tv4.getSchema(JSV.schema),false,'schema');
+                var schema = tv4.getSchema(JSV.schema);
+                schema.id = schema.id || JSV.schema;
+                JSV.compileData(schema,false,'schema');
 
                 // Calculate total nodes, max label length
                 var totalNodes = 0;
