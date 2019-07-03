@@ -25,17 +25,21 @@
     "grunt-contrib-uglify": "~2",
     "grunt-contrib-watch": "~1",
     "grunt-env": "~0",
-    "grunt-preprocess": "~4"
+    "grunt-preprocess": "~4",
+    "snyk": "^1.189.0"
   },
   "scripts": {
     "dev": "grunt",
     "prod": "grunt prod",
     "watch": "grunt watch",
-    "test": "grunt init"
+    "test": "grunt init",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "devDependencies": {
     "grunt-contrib-connect": "^1",
     "grunt-gh-pages": "^2",
     "grunt-jsdoc": "^2"
-  }
+  },
+  "snyk": true
 }
