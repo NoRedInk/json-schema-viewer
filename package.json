@@ -24,7 +24,7 @@
     "grunt-contrib-sass": "~1",
     "grunt-contrib-uglify": "~2",
     "grunt-contrib-watch": "~1",
-    "grunt-env": "~0",
+    "grunt-env": "~1.0.0",
     "grunt-preprocess": "~4"
   },
   "scripts": {
